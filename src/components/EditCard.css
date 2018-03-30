@@ -1,0 +1,81 @@
+.eCardMain {
+    background: rgb(153, 144, 144);
+    height: 100vh;
+    width: 100%;
+}
+.divH1 {
+    width: 100%;
+    height: 20vh;
+    padding: 5vh 12vw;
+}
+.divH1>h1 {
+    font-family: 'Knewave', cursive;
+    font-size: 50pt;
+    color: white;
+}
+.eCardBody {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.inputAndButton {
+    width: 30vw;
+    height: 43vh;
+}
+.inputAndButton label {
+    color: white;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 24pt;
+}
+.inputAndButton input {
+    width: 30vw;
+    height: 30px;
+    color: rebeccapurple;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 16pt;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.inputAndButton input:focus {
+    border: 2px solid rebeccapurple;
+}
+.inputAndButton button:active { outline:none;} 
+.inputAndButton button:focus { outline:none;}
+.inputAndButton button {
+    margin: 20px 35%;
+    width: 150px;
+    background: rgba(255, 255, 255, 0);
+    padding: 10px 0;
+    color: white;
+    border: 3px solid white;
+    cursor: pointer;
+    font-family: 'Knewave', cursive;
+    font-size: 14pt;
+}
+.inputAndButton button:hover {
+    background: rebeccapurple;
+    border:3px solid rebeccapurple;
+}
+.imgUrlGroup {
+    margin-top: 10px;
+}
+.nameGroup {
+    
+}
+.titleGroup {
+    margin-top: 20px;
+}
+
+.uploadImgDiv {
+    width: 40%;
+    height: 43vh;
+    background: rgb(58, 58, 58);
+    min-height: 400px;
+    margin-left: 20px;
+    border: 20px solid white;
+}
+.uploadImgDiv img {
+    width: 100%;
+    max-height: 100%;
+}

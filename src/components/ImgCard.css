@@ -1,0 +1,33 @@
+.imageCardDiv {
+    
+}
+.imgDiv {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-right: 40px;
+    margin-top: 40px;
+}
+.imgDiv>img {
+    width: 100%;
+    padding: 20px;
+    background: rgb(245, 241, 234);
+}
+.imgCardNames {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    font-family: 'Fjalla One', sans-serif;
+}
+.imgDiv:hover .imgCardNames {
+    opacity: 1;
+    background: rgb(245, 241, 234);
+}
+.atristNameH2 {
+    float: left;
+}
+.imgNameH2 {
+    float: right;
+}
