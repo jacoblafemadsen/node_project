@@ -56,6 +56,7 @@ export default class App extends Component {
             </div>
           </section>
         </div>
+        
         <div className="transitionBanner">
           <div id="d1"></div>
           <div id="d2"></div>
@@ -73,11 +74,13 @@ export default class App extends Component {
           ref={instance => { this.child1 = instance; }}
         />
         <div className="galleryBottom"></div>
+
         <EditCard
           baseUrl={this.state.baseUrl}
           updtImg={this.updateImg}
           ref={instance => { this.child2 = instance; }} 
         />
+
       </div>
     );
   }
