@@ -55,14 +55,20 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="frontBanner">
-          <section className="frontBannerImg">
+          <section>
             <ul className="navBar">
               <li><a href="#d2">gallery</a></li>
               <li><a href="#bottom">share image</a></li>
             </ul>
+          </section>
+          <section className="frontBannerImg">
             <div className="logoBackground">
               <h1 className="logo">abstract</h1>
             </div>
+            <div className="logoUnder">
+              <h2>share your art with your community, get your name out there.</h2>
+            </div>
+            <div className="downArrow">&#8595;</div>
           </section>
         </div>
 
