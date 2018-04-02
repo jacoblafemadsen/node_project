@@ -11,6 +11,9 @@ export default class Gallery extends Component {
     this.upIdx = this.upIdx.bind(this)
     this.downIdx = this.downIdx.bind(this)
   }
+
+
+
   upIdx() {
     if(this.state.idx === (this.props.images.length - 1)) {
       this.setState({idx: 0})
@@ -25,6 +28,9 @@ export default class Gallery extends Component {
       this.setState({idx: (this.state.idx) - 1})
     }
   }
+
+
+  
   render() {
     return (
       <div key={this.props.id} className="galleryContainer">

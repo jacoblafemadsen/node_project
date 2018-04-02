@@ -16,11 +16,17 @@ export default class App extends Component {
     this.imgDelete = this.imgDelete.bind(this)
     this.imgEdit = this.imgEdit.bind(this)
   }
+
+
+
   componentDidMount() {
     axios.get(`${this.state.baseUrl}`).then(res => {
       this.setState({img: res.data})
     })
   }
+
+
+
   updateImg() {
     axios.get(`${this.state.baseUrl}`).then(res => {
       this.setState({img: res.data})
@@ -42,6 +48,9 @@ export default class App extends Component {
   imgEdit(obj) {
     this.child2.editImg(obj)
   }
+
+
+
   render() {
     return (
       <div className="App">
@@ -56,7 +65,7 @@ export default class App extends Component {
             </div>
           </section>
         </div>
-        
+
         <div className="transitionBanner">
           <div id="d1"></div>
           <div id="d2"></div>
@@ -73,6 +82,7 @@ export default class App extends Component {
           imgEdit={this.imgEdit}
           ref={instance => { this.child1 = instance; }}
         />
+        
         <div className="galleryBottom"></div>
 
         <EditCard
@@ -80,7 +90,6 @@ export default class App extends Component {
           updtImg={this.updateImg}
           ref={instance => { this.child2 = instance; }} 
         />
-
       </div>
     );
   }

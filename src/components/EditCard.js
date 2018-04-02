@@ -14,6 +14,9 @@ export default class EditCard extends Component {
             edit: false
         }
     }
+
+
+
     updateImgUrl(e){
         this.setState({imgUrl: e})
     }
@@ -23,6 +26,9 @@ export default class EditCard extends Component {
     updateImgUName(e){
         this.setState({imgName: e})
     }
+
+
+    
     editImg(obj) {
         this.setState({
             imgUrl: obj.url,
@@ -68,6 +74,9 @@ export default class EditCard extends Component {
             this.setState({testUrl: this.state.imgUrl})
         }
     }
+
+
+
     render() {
         return (
             <section className="eCardMain" id="bottom">
