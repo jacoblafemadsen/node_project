@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EditCard from './components/EditCard'
-import ImgCard from './components/ImgCard'
+import Gallery from './components/Gallery'
 import './reset.css'
 import './App.css';
 import axios from 'axios';
@@ -13,6 +13,7 @@ export default class App extends Component {
       img: []
     }
     this.updateImg = this.updateImg.bind(this)
+    this.imgDelete = this.imgDelete.bind(this)
   }
   componentDidMount() {
     axios.get(`${this.state.baseUrl}`).then(res => {
@@ -24,30 +25,21 @@ export default class App extends Component {
       this.setState({img: res.data})
     })
   }
-  render() {
-    let imageCards = []
-    if(this.state.img !== []) {
-      console.log(this.state.img)
-      imageCards = this.state.img.map(e => {
-        let { url, name, imgTitle, id } = e
-        return (
-          <div className="imgCardDisplay">
-            <ImgCard  key={id}
-            url={url}
-            name={name}
-            imgTitle={imgTitle}
-          />
-          </div>
-        );
+  imgDelete(id) {
+    if(this.state.img.length !== 1) {
+      axios.delete(`/api/images/${id}`).then(res => {
+        console.log('Success!')
       })
+      this.updateImg()
     }
-    
+  }
+  render() {
     return (
       <div className="App">
         <div className="frontBanner">
           <section className="frontBannerImg">
             <ul className="navBar">
-              <li><a href="#d3">gallery</a></li>
+              <li><a href="#d2">gallery</a></li>
               <li><a href="#bottom">share image</a></li>
             </ul>
             <div className="logoBackground">
@@ -56,23 +48,20 @@ export default class App extends Component {
           </section>
         </div>
         <div className="transitionBanner">
-          
           <div id="d1"></div>
           <div id="d2"></div>
           <div id="d3"></div>
           <h1>{`gallery`}</h1>
           <div id="d4"></div>
           <div id="d5"></div>
+          <div id="d6"></div>
         </div>
-        <div className="topCardContainer">
-          
-        </div>
-        <div className="imgCardContainer">
-          {imageCards}
-        </div>
-        <div className="botCardContainer">
-
-        </div>
+        
+        <Gallery 
+          images={this.state.img}
+          delImg={this.imgDelete}
+        />
+        <div className="galleryBottom"></div>
         <EditCard
           baseUrl={this.state.baseUrl}
           updtImg={this.updateImg}

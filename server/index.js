@@ -11,4 +11,6 @@ app.get('/api/images', fN.getAll)
 
 app.post('/api/images', fN.postCard)
 
+app.delete('/api/images/:id', fN.delImg)
+
 app.listen(PORT, () => console.log('Listening always listening -_-'))

@@ -1,13 +1,13 @@
-var count = 5
+var count = 12
 var images = [{
-	"url": "https://images.unsplash.com/photo-1509793856049-e9c0298b4ce7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c1af97d5ff7925d2ef8a296e4ac2d311&auto=format&fit=crop&w=1351&q=80",
-	"name": "Ricardo Gomez Angel",
-    "imgTitle": "Ripato",
-    "id": "1"
-},{
 	"url": "https://images.unsplash.com/photo-1504857561629-9c9b39e991bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d0b1f371a08c7dab7f25bc3586ceba39&auto=format&fit=crop&w=1352&q=80",
 	"name": "Dmitri Popov",
     "imgTitle": "dmpop",
+    "id": "1"
+},{
+	"url": "https://images.unsplash.com/photo-1509793856049-e9c0298b4ce7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c1af97d5ff7925d2ef8a296e4ac2d311&auto=format&fit=crop&w=1351&q=80",
+	"name": "Ricardo Gomez Angel",
+    "imgTitle": "Ripato",
     "id": "2"
 },{
 	"url": "https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5257b32f41a8a970f1b644c88174cee5&auto=format&fit=crop&w=1952&q=80",
@@ -71,6 +71,17 @@ module.exports = {
         console.log(newImg)
         images.push(newImg)
         count++
+        res.status(200).send(images)
+    },
+    delImg: (req, res) => {
+        images.forEach((e, i, a) => {
+            if(e.id == req.params.id) {
+                console.log(images[i])
+                images.splice(i, 1);
+                console.log(images[i])
+                console.log('image ' + i + ' was deleted')
+            }
+        })
         res.status(200).send(images)
     }
 }

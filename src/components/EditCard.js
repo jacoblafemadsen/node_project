@@ -88,6 +88,7 @@ export default class EditCard extends Component {
                         </div>
                     </div>
                     <div className="uploadImgDiv">
+                        <h1>test your image here</h1>
                         <img src={this.state.testUrl}  alt=""/>
                     </div>
                 </div>
