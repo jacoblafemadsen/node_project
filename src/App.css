@@ -63,15 +63,16 @@ a {
 }
 .logoUnder {
   font-family: 'Knewave', cursive;
+  max-width: 900px;
   padding: 30px 60px;
   font-size: 32pt;
   color: white;
 }
 .downArrow {
-  font-size: 75pt;
+  font-size: 60pt;
   color: white;
   position: absolute;
-  bottom: 50px;
+  bottom: 25px;
 }
 .transitionBanner {
   position: relative;
@@ -105,6 +106,6 @@ a {
 
 .galleryBottom {
   background: rgb(250, 250, 250);
-  height: 50px;
+  height: 40px;
   width: 100%;
 }

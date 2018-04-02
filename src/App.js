@@ -68,7 +68,7 @@ export default class App extends Component {
             <div className="logoUnder">
               <h2>share your art with your community, get your name out there.</h2>
             </div>
-            <div className="downArrow">&#8595;</div>
+            <div className="downArrow"><a href="#d2">&#8595;</a></div>
           </section>
         </div>
 
