@@ -12,6 +12,20 @@
     position: absolute;
     text-align: center;
 }
+.infoBar button {
+    width: 45px;
+    height: 45px;
+    border-radius: 22.5px;
+    background: rgb(250, 250, 250);
+    border: 4px solid black;
+    line-height: 0;
+    cursor: pointer;
+}
+.infoBar button:hover {
+    color: rgb(250, 250, 250);
+    background: black;
+    border: 4px solid rgb(250, 250, 250);
+}
 .imgContainer>img {
     height: 100%;
     display: block;
@@ -19,13 +33,11 @@
 }
 #edit {
     float: left;
-    width: 25px;
-    height: 25px;
+    font-size: 20pt;
 }
 #delete {
     float: right;
-    width: 25px;
-    height: 25px;
+    font-size: 22pt;
 }
 .infoBar>h1 {
     font-family: 'Fjalla One', sans-serif;

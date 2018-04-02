@@ -1,8 +1,8 @@
 var count = 12
 var images = [{
-	"url": "https://images.unsplash.com/photo-1504857561629-9c9b39e991bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d0b1f371a08c7dab7f25bc3586ceba39&auto=format&fit=crop&w=1352&q=80",
-	"name": "Dmitri Popov",
-    "imgTitle": "dmpop",
+	"url": "https://images.unsplash.com/photo-1520864275947-5ddafc397fa9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5d5d7ca7227766fe508c0c42eac7a095&auto=format&fit=crop&w=1267&q=80",
+	"name": "Lønfeldt",
+    "imgTitle": "artbylonfeldt",
     "id": "1"
 },{
 	"url": "https://images.unsplash.com/photo-1509793856049-e9c0298b4ce7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c1af97d5ff7925d2ef8a296e4ac2d311&auto=format&fit=crop&w=1351&q=80",
@@ -45,9 +45,9 @@ var images = [{
     "imgTitle": "igorovsyannykov",
     "id": "9"
 },{
-	"url": "https://images.unsplash.com/photo-1520864275947-5ddafc397fa9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5d5d7ca7227766fe508c0c42eac7a095&auto=format&fit=crop&w=1267&q=80",
-	"name": "Lønfeldt",
-    "imgTitle": "artbylonfeldt",
+	"url": "https://images.unsplash.com/photo-1504857561629-9c9b39e991bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d0b1f371a08c7dab7f25bc3586ceba39&auto=format&fit=crop&w=1352&q=80",
+	"name": "Dmitri Popov",
+    "imgTitle": "dmpop",
     "id": "10"
 },{
 	"url": "https://images.unsplash.com/photo-1510021115607-c94b84bceb1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=af0722591ba699585a9796332e8f74f7&auto=format&fit=crop&w=1942&q=80",
@@ -61,27 +61,34 @@ module.exports = {
         res.status(200).send(images)
     },
     postCard: (req, res) => {
-        var { url, name, imgTitle } = req.body.card
+        let { url, name, imgTitle } = req.body.card
         let newImg = {
             url: url,
             name: name,
             imgTitle: imgTitle,
             id: count
         }
-        console.log(newImg)
         images.push(newImg)
         count++
-        res.status(200).send(images)
+        res.status(200)
     },
     delImg: (req, res) => {
         images.forEach((e, i, a) => {
             if(e.id == req.params.id) {
-                console.log(images[i])
                 images.splice(i, 1);
-                console.log(images[i])
-                console.log('image ' + i + ' was deleted')
             }
         })
-        res.status(200).send(images)
+        res.status(200)
+    },
+    editImg: (req, res) => {
+        let { url, name, imgTitle } = req.body.card
+        images.forEach((e, i, a) => {
+            if(e.id == req.params.id) {
+                e.url = url
+                e.name = name
+                e.imgTitle = imgTitle
+            }
+        })
+        res.status(200)
     }
 }

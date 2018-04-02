@@ -8,8 +8,10 @@ export default class EditCard extends Component {
         this.state = {
             imgUrl: '',
             artistName: '',
-            imgName : '',
-            testUrl: ''
+            imgName: '',
+            testUrl: '',
+            curId: 0,
+            edit: false
         }
     }
     updateImgUrl(e){
@@ -21,6 +23,17 @@ export default class EditCard extends Component {
     updateImgUName(e){
         this.setState({imgName: e})
     }
+    editImg(obj) {
+        this.setState({
+            imgUrl: obj.url,
+            artistName: obj.name,
+            imgName: obj.imgTitle,
+            testUrl: obj.url,
+            curId: obj.id,
+            edit: true
+        })
+        console.log(obj)
+    }
     submit(){
         if(this.state.imgUrl && this.state.imgName && this.state.artistName) {
             let card = {
@@ -28,14 +41,22 @@ export default class EditCard extends Component {
                 name: this.state.artistName,
                 imgTitle: this.state.imgName
             }
-            axios.post(`${this.props.baseUrl}`, {card}).then(res => {
-                console.log('Success!')
-            })
+            if(this.state.edit) {
+                axios.put(`${this.props.baseUrl}/${this.state.curId}`, {card}).then(ree => {
+                    console.log('Success! Image change.')
+                })
+                this.setState({edit: false})
+            } else {
+                axios.post(`${this.props.baseUrl}`, {card}).then(res => {
+                    console.log('Success! Posted.')
+                })
+            }
             this.setState({
                 imgUrl: '',
                 artistName: '',
                 imgName : '',
-                testUrl: ''
+                testUrl: '',
+                curId: 0
             })
             this.props.updtImg()
         } else {
@@ -43,11 +64,9 @@ export default class EditCard extends Component {
         }
     }
     testUrl() {
-        console.log(this.state.imgUrl)
         if(this.state.imgUrl) {
             this.setState({testUrl: this.state.imgUrl})
         }
-        console.log(this.state.testUrl)
     }
     render() {
         return (
@@ -88,8 +107,7 @@ export default class EditCard extends Component {
                         </div>
                     </div>
                     <div className="uploadImgDiv">
-                        <h1>test your image here</h1>
-                        <img src={this.state.testUrl}  alt=""/>
+                        {this.state.testUrl?<img src={this.state.testUrl}  alt=""/>:<h1>test your image here</h1>}
                     </div>
                 </div>
             </section>

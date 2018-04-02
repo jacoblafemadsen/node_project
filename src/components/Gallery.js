@@ -33,6 +33,7 @@ export default class Gallery extends Component {
           <Img 
             singleImgObj={this.props.images[this.state.idx]}
             delImg={this.props.delImg}
+            imgEdit={this.props.imgEdit}
           />
       </div>
     );

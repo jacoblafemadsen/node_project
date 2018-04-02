@@ -13,4 +13,6 @@ app.post('/api/images', fN.postCard)
 
 app.delete('/api/images/:id', fN.delImg)
 
+app.put('/api/images/:id', fN.editImg)
+
 app.listen(PORT, () => console.log('Listening always listening -_-'))

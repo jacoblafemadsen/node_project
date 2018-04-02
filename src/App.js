@@ -14,6 +14,7 @@ export default class App extends Component {
     }
     this.updateImg = this.updateImg.bind(this)
     this.imgDelete = this.imgDelete.bind(this)
+    this.imgEdit = this.imgEdit.bind(this)
   }
   componentDidMount() {
     axios.get(`${this.state.baseUrl}`).then(res => {
@@ -25,13 +26,21 @@ export default class App extends Component {
       this.setState({img: res.data})
     })
   }
-  imgDelete(id) {
-    if(this.state.img.length !== 1) {
-      axios.delete(`/api/images/${id}`).then(res => {
+  imgDelete(obj) {
+    console.log(obj.id)
+    console.log(this.state.img[this.state.img.length - 1].id)
+    if(this.state.img.length > 1) {
+      axios.delete(`/api/images/${obj.id}`).then(res => {
         console.log('Success!')
       })
+      if(obj.id === this.state.img[this.state.img.length - 1].id) {
+        this.child1.downIdx()
+      }
       this.updateImg()
     }
+  }
+  imgEdit(obj) {
+    this.child2.editImg(obj)
   }
   render() {
     return (
@@ -60,11 +69,14 @@ export default class App extends Component {
         <Gallery 
           images={this.state.img}
           delImg={this.imgDelete}
+          imgEdit={this.imgEdit}
+          ref={instance => { this.child1 = instance; }}
         />
         <div className="galleryBottom"></div>
         <EditCard
           baseUrl={this.state.baseUrl}
           updtImg={this.updateImg}
+          ref={instance => { this.child2 = instance; }} 
         />
       </div>
     );
