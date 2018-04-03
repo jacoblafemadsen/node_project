@@ -27,22 +27,20 @@ export default class App extends Component {
 
 
 
-  updateImg() {
+  updateImg(res) {
     axios.get(`${this.state.baseUrl}`).then(res => {
       this.setState({img: res.data})
     })
   }
-  imgDelete(obj) {
-    console.log(obj.id)
-    console.log(this.state.img[this.state.img.length - 1].id)
+  imgDelete(id) {
     if(this.state.img.length > 1) {
-      axios.delete(`/api/images/${obj.id}`).then(res => {
-        console.log('Success!')
+      console.log(id)
+      axios.delete(`${this.state.baseUrl}/${id}`).then(res => {
+        this.setState({img: res.data})
       })
-      if(obj.id === this.state.img[this.state.img.length - 1].id) {
+      if(id === this.state.img[this.state.img.length - 1].id) {
         this.child1.downIdx()
       }
-      this.updateImg()
     }
   }
   imgEdit(obj) {
@@ -55,7 +53,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="frontBanner">
-          <section>
+          <section className="navBanner">
             <ul className="navBar">
               <li><a href="#d2">gallery</a></li>
               <li><a href="#bottom">share image</a></li>

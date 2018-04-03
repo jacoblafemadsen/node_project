@@ -32,7 +32,7 @@
 .inputAndButton input {
     width: 30vw;
     height: 30px;
-    color: grey;
+    color: rgb(125, 125, 125);
     font-family: 'Fjalla One', sans-serif;
     font-size: 16pt;
 }
@@ -51,10 +51,15 @@ textarea:focus, input:focus{
     cursor: pointer;
     font-family: 'Knewave', cursive;
     font-size: 14pt;
+    -webkit-transition: 0.2s ease-out;
+    -moz-transition:  0.2s ease-out;
+    transition:  0.2s ease-out;
+
 }
 .inputAndButton button:hover {
-    background: grey;
-    border:3px solid grey;
+    background: rgb(125, 125, 125);
+    border:3px solid rgb(125, 125, 125);
+
 }
 .imgUrlGroup {
     margin-top: 10px;

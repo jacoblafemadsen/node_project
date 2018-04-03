@@ -73,12 +73,14 @@ module.exports = {
         res.status(200)
     },
     delImg: (req, res) => {
-        images.forEach((e, i, a) => {
-            if(e.id == req.params.id) {
+        console.log('id', req.params.id)
+        for (let i = images.length - 1; i >= 0 ; i--) {
+            if(images[i].id == req.params.id) {
+                console.log('index', images[i].id)
                 images.splice(i, 1);
             }
-        })
-        res.status(200)
+        }
+        res.status(200).send(images)
     },
     editImg: (req, res) => {
         let { url, name, imgTitle } = req.body.card

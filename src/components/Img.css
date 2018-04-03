@@ -20,11 +20,20 @@
     border: 4px solid black;
     line-height: 0;
     cursor: pointer;
+    
+    -webkit-transition: 0.5s ease-out;
+    -moz-transition:  0.5s ease-out;
+    transition:  0.5s ease-out;
+
 }
 .infoBar button:hover {
     color: rgb(250, 250, 250);
     background: black;
     border: 4px solid rgb(250, 250, 250);
+
+    -webkit-transform: rotateZ(720deg);
+    -moz-transform: rotateZ(720deg);
+    transform: rotateZ(720deg);
 }
 .imgContainer>img {
     height: 100%;
